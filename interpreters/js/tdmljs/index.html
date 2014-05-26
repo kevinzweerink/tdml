@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<head>
+	<title>TDMLJS Test</title>
+	<script src="core.js"></script>
+	<script src="parse.js"></script>
+	<style>
+		html, body {
+			margin: 0;
+			padding: 0;
+		}
+
+		#text {
+			padding: 5em 10%;
+			font-size: 21px;
+			font-family: "Apercu Mono", monospace;
+			width: 100%;
+			height: 100vh;
+			overflow-y: scroll;
+		}
+	</style>
+
+</head>
+
+<body>
+
+	<div id="text" contenteditable>
+		Edit this text
+	</div>
+
+	<script>
+		window.test = function() {
+			var words = document.getElementById("text").innerHTML;
+			var _words = window.tdml.clean(words);
+			var _list = window.tdml.parse(_words);
+			return _list;
+		}
+	</script>
+
+</body>
