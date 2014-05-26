@@ -3,6 +3,8 @@
 	<title>TDMLJS Test</title>
 	<script src="core.js"></script>
 	<script src="parse.js"></script>
+	<script src="highlighter.js"></script>
+	<script src="cursor.js"></script>
 	<style>
 		html, body {
 			margin: 0;
@@ -12,10 +14,11 @@
 		#text {
 			padding: 5em 10%;
 			font-size: 21px;
-			font-family: "Apercu Mono", monospace;
+			font-family: "Apercu-Mono", monospace;
 			width: 100%;
 			height: 100vh;
 			overflow-y: scroll;
+			color: #333333;
 		}
 	</style>
 
@@ -23,17 +26,11 @@
 
 <body>
 
-	<div id="text" contenteditable>
-		Edit this text
-	</div>
+	<textarea id="text"></textarea>
 
 	<script>
-		window.test = function() {
-			var words = document.getElementById("text").innerHTML;
-			var _words = window.tdml.clean(words);
-			var _list = window.tdml.parse(_words);
-			return _list;
-		}
+		var list = document.getElementById("text");
+		window.tdml.watch(list);
 	</script>
 
 </body>
