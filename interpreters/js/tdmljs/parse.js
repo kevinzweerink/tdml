@@ -21,6 +21,16 @@ String.prototype.insertBefore = function(exp, insertion) {
 	return returnString;
 }
 
+_TDML.prototype.cleanToString = function(text) {
+	var clean = function(text) {
+		var output = text.replace(/<(?:.|\n)*?>/gm, '');
+		return output;
+	}
+
+	var cleanText = clean(text);
+	return cleanText;
+}
+
 // Expects block of raw HTML or plain text
 // Returns list as array
 _TDML.prototype.clean = function(text) {

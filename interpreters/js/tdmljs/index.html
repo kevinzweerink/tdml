@@ -9,16 +9,40 @@
 		html, body {
 			margin: 0;
 			padding: 0;
+			background: #3B4047;
 		}
 
 		#text {
-			padding: 5em 10%;
+			padding: 5em 0;
 			font-size: 21px;
 			font-family: "Apercu-Mono", monospace;
-			width: 100%;
+			width: 80%;
 			height: 100vh;
 			overflow-y: scroll;
-			color: #333333;
+			color: #B4C0D4;
+			margin: 0 auto;
+		}
+
+		#text:focus {
+			border: none;
+			outline: none;
+		}
+
+		.list-item {
+			color: #F3FAE3;
+			display: block;
+		}
+
+		.list-item.completed {
+			color: #7A8391;
+		}
+
+		.priority-mark {
+			color: #EB5E4B;
+		}
+
+		.tag {
+			color: #4BA0EB;
 		}
 	</style>
 
@@ -26,7 +50,7 @@
 
 <body>
 
-	<textarea id="text"></textarea>
+	<div id="text" contenteditable></div>
 
 	<script>
 		var list = document.getElementById("text");
